@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Greeting Service",
+    "version": "1.0",
+    "contact": {
+      "name": "grpc_tutorialproject",
+      "url": "https://github.com/surenraju/grpc_rest_helloworld",
+      "email": "suren.1988@gmail.com"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/greet": {
+      "get": {
+        "summary": "Greet method",
+        "operationId": "greet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/greetingserviceGreetResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "format": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "GreetService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "greetingserviceGreetResponse": {
+      "type": "object",
+      "properties": {
+        "greeting": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

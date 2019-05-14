@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package greetingservice;
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+	info: {
+		title: "Greeting Service";
+		version: "1.0";
+		contact: {
+			name: "grpc_tutorialproject";
+			url: "https://github.com/surenraju/grpc_rest_helloworld";
+			email: "suren.1988@gmail.com";
+        };
+    };
+    schemes: HTTP;
+    consumes: "application/json";
+    produces: "application/json";
+    responses: {
+		key: "404";
+		value: {
+			description: "Returned when the resource does not exist.";
+			schema: {
+				json_schema: {
+					type: STRING;
+				}
+			}
+		}
+	}
+};
+
+message GreetRequest {
+    string name = 1;
+}
+
+message GreetResponse {
+    string greeting = 1;
+}
+
+service GreetService {
+	// Greet method
+    rpc greet(GreetRequest) returns (GreetResponse) {
+		option (google.api.http) = {
+            get: "/v1/greet"
+        };
+	}
+}
