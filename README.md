@@ -61,3 +61,11 @@ To compile and run the server, assuming you are in the folder $GOPATH/src/github
 ```
 go run server/main.go
 ```
+
+If you see
+```
+2019/05/14 17:28:25 starting HTTP/REST gateway...
+2019/05/14 17:28:25 starting gRPC server...
+```
+
+It means server is started. 
