@@ -58,6 +58,6 @@ files inside ```greetingservice``` folder
 
 
 To compile and run the server, assuming you are in the folder $GOPATH/src/github.com/surenraju/grpc_rest_helloworld, simply:
-
-$ go run server/main.go
-
+```
+go run server/main.go
+```
