@@ -59,7 +59,7 @@ files inside ```greetingservice``` folder
 
 To compile and run the server, assuming you are in the folder $GOPATH/src/github.com/surenraju/grpc_rest_helloworld, simply:
 ```
-go run server/main.go
+go run server/main.go -grpc-port=9090 -http-port=8080
 ```
 
 If you see
@@ -69,3 +69,16 @@ If you see
 ```
 
 It means server is started. 
+
+Now you can visit the ```greet``` url from blowser
+
+```
+http://localhost:8080/v1/greet?name=suren
+```
+and get
+```
+{
+"greeting": "Hello suren"
+}
+```
+as response.
